@@ -1,0 +1,1 @@
+Writte the npm i command when you clon this repository.
