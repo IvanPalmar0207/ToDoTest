@@ -1,0 +1,85 @@
+footer{
+    padding: 50px;
+    padding-left: 80px;
+    padding-right: 80px;
+    background-color: black;
+}
+
+.aboutNet{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 80px;
+}
+
+.containerAbout{
+    width: 80%;
+}
+
+.containerAbout h2{
+    font-family: "Kanit", sans-serif;
+    color: rgb(188, 63, 188);
+}
+
+.containerAbout p{    
+    color: white;
+    text-align: justify;
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+.containerNetW{
+    width: 15%;
+}
+
+.containerNetW h2{
+    font-family: "Kanit", sans-serif;
+    color: rgb(188, 63, 188);
+    text-align: center;
+}
+
+.containerInfoFoot{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.iconFoot{
+    font-size: 2.6rem;
+    color: white;
+    opacity: 0.9;
+}
+
+.iconFoot:hover{
+    transition: all ease-in 0.3s;
+    color: rgb(188, 63, 188);
+    transform: scale(1.05);
+}
+
+.containerCopy{
+    text-align: center;
+    color: rgb(188, 63, 188);
+    margin-top: 40px;
+    font-size: 1rem;
+}
+
+@media (max-width : 900px) {
+    footer{
+        padding: 50px;
+    }
+}
+
+@media (max-width : 500px) {
+    .aboutNet{            
+        flex-direction: column;
+        gap: 60px;
+        text-align: center;
+    }
+    .containerNetW{
+        width: 90%;
+    }
+
+    .containerCopy{
+        margin-top: 60px;
+    }
+}

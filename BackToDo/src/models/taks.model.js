@@ -4,6 +4,8 @@ import sequelize from "../db.js";
 import { DataTypes } from "sequelize";
 //Priority Relationship
 import priorityModel from "./priority.model.js";
+//Status Task Relationship
+import statusTask from "./statusTask.model.js";
 
 //TaskModel
 const taskModel = sequelize.define('Task',{
@@ -19,11 +21,7 @@ const taskModel = sequelize.define('Task',{
         type : DataTypes.DATE(),
         defaultValue : Date.now,
         allowNull : false,
-    },
-    taskStatus : {
-        type : DataTypes.BOOLEAN,
-        defaultValue : false
-    }    
+    }       
 })
 
 //Priority Foreign Key
@@ -35,6 +33,17 @@ priorityModel.hasMany(taskModel,{
 
 taskModel.belongsTo(priorityModel,{
     foreignKey : 'idPriority',
+})
+
+//Status Foreign Key
+statusTask.hasMany(taskModel,{
+    foreignKey : 'idStatus',
+    sourceKey : 'id',
+    allowNull : false
+})
+
+taskModel.belongsTo(statusTask,{
+    foreignKey : 'idStatus',
 })
 
 export default taskModel

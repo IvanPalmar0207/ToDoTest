@@ -103,5 +103,11 @@ export const getOnePriority = async (req, res) => {
 
 //Get All Priorities
 export const allPriorities = async (req, res) => {
+    try{
+        const allData = await priorityModel.findAll()
 
+        res.status(200).json(allData)
+    }catch(err){
+        return res.status(500).json({message : err.message})
+    }
 }

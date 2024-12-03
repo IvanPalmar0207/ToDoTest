@@ -1,0 +1,181 @@
+/*
+    Font Style
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+.containerForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    background-image: url('../img/backLogin.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.containerFormRegister{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    background-image: url('../img/backRegister.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.containerFormTask{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    background-image: url('../img/backTask.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.containerFormLG{    
+    background-color: white;    
+    margin-top: 8%;
+    margin-bottom: 8%;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.containerFormLG h1{
+    text-align: center;
+    font-family: "Kanit", sans-serif;
+    color: rgb(206, 83, 206);
+}
+
+.containerFormLG p{
+    color: black;
+    font-family: "Merriweather", serif;
+    text-align: center;
+    font-size: 0.95rem;
+    margin-top: 15px;
+}
+
+.formTecnic{
+    margin-top: 30px;
+}
+
+.errorSubmit{
+    margin-bottom: 20px;
+}
+
+.formTecnic input{
+    width: 100%;
+    border: none;
+    background-color: rgb(203, 74, 203);    
+    border-radius: 20px;
+    margin-bottom: 20px;
+    
+    font-family: "Merriweather", serif;
+    color: white;
+    font-weight: bold;
+
+    font-size: 0.9rem;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 13px;    
+}
+
+.formTecnic textarea{
+    width: 100%;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(203, 74, 203);
+    resize: none;
+    margin-bottom: 20px;
+    padding: 15px;    
+
+    font-family: "Merriweather", serif;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.formTecnic select{
+    width: 100%;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(203, 74, 203);
+    resize: none;
+    margin-bottom: 20px;
+    padding: 15px;       
+
+    font-family: "Merriweather", serif;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.formTecnic .containerLabel{
+    text-align: start;
+    margin-bottom: 15px;
+    margin-top: 5px;    
+    margin-left: 5px;
+
+    font-family: "Merriweather", serif;
+    color: black;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.formTecnic .updateInfo{
+    text-align: start;
+    margin-bottom: 15px;    
+    font-family: "Merriweather", serif;
+    color: rgb(203, 74, 203);
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.containerButtonSubmit{
+    margin-top: 15px;
+}
+
+.containerButtonSubmit .confirmButtonLG{
+    font-family: "Kanit", sans-serif;
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgb(159, 44, 159);
+    color: white;    
+    font-size: 1.1rem;
+}
+
+.containerButtonSubmit .confirmButtonLG:hover{
+    transition: all ease-in 0.3s;
+    transform: scale(1.05);
+}
+
+.containerGoLG{
+    margin-top: 20px;
+    text-align: end;    
+    font-family: "Kanit", sans-serif;
+}
+
+.containerGoLG .formLink{
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: rgb(206, 83, 206);
+}
+
+.containerGoLG .formLink:hover{
+    transition: all ease-in 0.3s;
+    text-decoration: underline;
+}
+
+
+@media (max-width : 900px) {
+    .containerForm{
+        padding: 30px;
+    }
+
+    .containerFormTask{
+        padding: 30px;
+    }
+}

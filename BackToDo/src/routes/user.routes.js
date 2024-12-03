@@ -6,6 +6,7 @@ import { loginUser } from "../controllers/user.controller.js";
 import { updateUser } from "../controllers/user.controller.js";
 import { deleteUser } from "../controllers/user.controller.js";
 import { verifyToken } from "../controllers/user.controller.js";
+import { logOutUser } from "../controllers/user.controller.js";
 //Auth Required Middleware
 import authRequired from "../middlewares/authRequired.middleware.js";
 
@@ -21,5 +22,7 @@ UserRouter.put('/updateUser/:id', authRequired, updateUser)
 UserRouter.delete('/deleteUser/:id', authRequired, deleteUser)
 //Verify Token Method
 UserRouter.get('/verifyToken', verifyToken)
+//Logout Method
+UserRouter.post('/logout', authRequired, logOutUser)
 
 export default UserRouter

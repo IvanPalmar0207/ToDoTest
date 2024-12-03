@@ -53,7 +53,7 @@ export const registerUser = async(req, res) => {
 
         res.cookie('token', token, {sameSite : 'none', secure : true})
 
-        res.status(200).json(saveUser)
+        res.json(saveUser)
 
 
     }catch(err){
@@ -89,7 +89,7 @@ export const loginUser = async(req, res) => {
 
         res.cookie('token', token, {sameSite : 'none', secure : true})
 
-        res.status(200).json(userFound)
+        res.json(userFound)
 
     }catch(err){
         return res.status(500).json({message : err.message})
@@ -142,15 +142,25 @@ export const deleteUser = async(req, res) => {
         return res.status(500).json({message : err.message})
     }
 }
+
+//LogOut User
+export const logOutUser = (req, res) => {    
+    res.cookie('token','',{
+        expires : new Date(0)
+    })
+    
+    res.status(200).json({message : 'Has cerrado la sesión correctamente'})
+}
+
 //Verify Token User
 export const verifyToken = (req, res) => {
-    const {token} = res.cookies
+    const {token} = req.cookies
 
-    if(!token) return res.status(404).json({message : 'El token no fue encontrado.'})
+    if(!token) return res.status(401).json({message : 'El token no fue encontrado.'})
 
     jwt.verify(token, TOKEN_SECRET, async(err, user1) => {
         
-        if(err) return res.status(404).json({message : 'Token Not Valid'})
+        if(err) return res.status(401).json({message : 'Token Not Valid'})
 
         //UserFound
         const userFound = await userModel.findOne({

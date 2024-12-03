@@ -4,7 +4,7 @@ import TOKEN_SECRET from "../config.js";
 import json from 'jsonwebtoken'
 
 //Create Access Token
-function createAccessToken({payload}){
+function createAccessToken(payload){
     return new Promise((resolve, reject) => {
         json.sign(
             payload,

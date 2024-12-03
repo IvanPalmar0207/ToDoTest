@@ -3,7 +3,7 @@ import taskModel from "../models/taks.model.js";
 
 //Add Task
 export const addTask = async(req, res) => {
-    const {nameTask, descriptionTask, dateSuccess, idPriority} = req.body
+    const {nameTask, descriptionTask, dateSuccess, idStatus, idPriority} = req.body
 
     try{
 
@@ -12,7 +12,7 @@ export const addTask = async(req, res) => {
             nameTask,
             descriptionTask,
             dateSuccess,
-            taskStatus : false,
+            idStatus : idStatus,
             idPriority : idPriority,
             idUser : req.user.id
         })
@@ -28,7 +28,7 @@ export const addTask = async(req, res) => {
 //UpdateTask
 export const updateTask = async(req, res) => {
     const {id} = req.params
-    const {nameTask, descriptionTask, dateSuccess, taskStatus, idPriority} = req.body
+    const {nameTask, descriptionTask, dateSuccess, idStatus, idPriority} = req.body
 
     try{
 
@@ -39,7 +39,7 @@ export const updateTask = async(req, res) => {
         taskFound.nameTask = nameTask
         taskFound.descriptionTask = descriptionTask
         taskFound.dateSuccess = dateSuccess
-        taskFound.taskStatus = taskStatus
+        taskFound.idStatus = idStatus
         taskFound.idPriority = idPriority
 
         await taskFound.save()
@@ -53,7 +53,7 @@ export const updateTask = async(req, res) => {
 //Update Status
 export const updateStatus = async(req, res) => {
     const {id} = req.params
-    const {taskStatus} = req.body
+    const {idStatus} = req.body
 
     try{
 
@@ -62,7 +62,7 @@ export const updateStatus = async(req, res) => {
 
         if(!taskFound) return res.status(404).json({message : 'La tarea no ha sido encontrada.'})
 
-        taskFound.taskStatus = taskStatus
+        taskFound.idStatus = idStatus
 
         await taskFound.save()
 

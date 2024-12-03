@@ -10,6 +10,7 @@ import cors from 'cors'
 import PriorityRouter from './routes/priority.routes.js'
 import UserRouter from './routes/user.routes.js'
 import TaskRouter from './routes/task.routes.js'
+import StatusRouter from './routes/statusTask.routes.js'
 
 //Server Instance
 const app = express()
@@ -34,5 +35,7 @@ app.use('/api', UserRouter)
 app.use('/api', TaskRouter)
 //Priority Router
 app.use('/api', PriorityRouter)
+//Status Router
+app.use('/api', StatusRouter)
 
 export default app
