@@ -19,24 +19,32 @@ import {useForm} from 'react-hook-form'
 import {Button} from '@mui/material'
 //SweetAlert
 import Swal from 'sweetalert2';
+//React-hooks
+import { useEffect } from 'react';
 
-function CardTask({id, nameTask, descriptionTask, dateSuccess, idStatus, idStatusId, idPriority}){
+function CardTask({id, nameTask, descriptionTask, dateSuccess, idStatus, idPriority}){
     
     const {deleteTaskApi, updateStatusApi} = useTask()
     const navigate = useNavigate()
 
-    const {handleSubmit, register} = useForm()
+    const {handleSubmit} = useForm()
 
-    const onSubmit = handleSubmit(async(data) => {
-        updateStatusApi(id, data)  
-        Swal.fire({
-            title : 'Estado Actualizado',
-            text : 'El estado ha sido actualizado correctamente.',
-            icon : 'success',
-            confirmButtonColor : '#3ed634',
-            confirmButtonText : 'Siguiente'
-        })
-    })
+    const {allPrioritiesApi, prioritiesList, allStatusApi, statusList} = useTask()
+
+    useEffect(() => {
+        allPrioritiesApi()
+        allStatusApi()
+    },[])
+
+    const filterStatus = (idSta) => {
+        const findStatus = statusList.find(status => status.id == idSta)
+        return findStatus ? findStatus.nameStatus : ''
+    }
+
+    const filterPriority = (idPri) => {
+        const findPriority = prioritiesList.find(priority => priority.id == idPri)
+        return findPriority ? findPriority.namePriority : ''
+    }
 
     return(
         <div className='containerCard'>
@@ -48,24 +56,24 @@ function CardTask({id, nameTask, descriptionTask, dateSuccess, idStatus, idStatu
                     {descriptionTask}
                 </p>
                 <div className='containerStatus'>
-                    <h4 className='statusChange'>
-                        <span className='changeColour'>Estado: </span> {idStatus} {     
-                            idStatusId === 1 ?
+                    <h4>
+                        <span className='changeColour'>Estado:</span> {filterStatus(idStatus)} {     
+                            idStatus === 1 ?
                             (                                
-                                <span>                                                                        
-                                    <MdOutlineUpdate className='iconStatus'/>                                        
+                                <span>                                    
+                                    <MdOutlineUpdate className='iconStatus'/>                                    
                                 </span>
                             )
                             :                            
                             (
-                                <span>                                    
+                                <span>                                                                        
                                     <FaCircleCheck className='iconStatus' />                                    
                                 </span>
                             )                       
                         }
                     </h4>
                     <h4>
-                        <span className='changeColour'>Prioridad:</span> {idPriority}
+                        <span className='changeColour'>Prioridad:</span> {filterPriority(idPriority)}
                     </h4>
                 </div>
                 <div className='containerDateSuccess'>

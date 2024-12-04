@@ -18,29 +18,11 @@ function ManageTask(){
         document.title = 'Gestionar Tareas'
     })
 
-    const {
-        allTaskApi, 
-        tasksList,
-        allPrioritiesApi,
-        prioritiesList,
-        allStatusApi,
-        statusList} = useTask()
+    const {allTaskApi, tasksList} = useTask()
 
     useEffect(() => {
-        allTaskApi()
-        allPrioritiesApi()
-        allStatusApi()
-    },[tasksList,prioritiesList,statusList])    
-
-    const filterStatus = (idStatus) => {
-        const findStatus = statusList.find(status => status.id === idStatus)
-        return findStatus ? findStatus.nameStatus : ''
-    }
-
-    const filterPriority = (idPriority) => {
-        const findPriority = prioritiesList.find(priority => priority.id === idPriority)
-        return findPriority ? findPriority.namePriority : ''
-    }
+        allTaskApi()        
+    },[tasksList])    
 
     const [pendantList, setPendantList] = useState([])
     const [completedList, setCompletedList] = useState([])
@@ -123,9 +105,8 @@ function ManageTask(){
                                     nameTask={task.nameTask}
                                     descriptionTask={task.descriptionTask}
                                     dateSuccess={task.dateSuccess}
-                                    idStatus={filterStatus(task.idStatus)}
-                                    idStatusId = {task.idStatus}
-                                    idPriority={filterPriority(task.idPriority)}
+                                    idStatus={task.idStatus}
+                                    idPriority={task.idPriority}
                                 />
                         )})
                         : null
@@ -141,9 +122,8 @@ function ManageTask(){
                                     nameTask={task.nameTask}
                                     descriptionTask={task.descriptionTask}
                                     dateSuccess={task.dateSuccess}
-                                    idStatus={filterStatus(task.idStatus)}
-                                    idStatusId = {task.idStatus}
-                                    idPriority={filterPriority(task.idPriority)}
+                                    idStatus={task.idStatus}
+                                    idPriority={task.idPriority}
                                 />
                         )})
                         : null
@@ -159,9 +139,8 @@ function ManageTask(){
                                     nameTask={task.nameTask}
                                     descriptionTask={task.descriptionTask}
                                     dateSuccess={task.dateSuccess}
-                                    idStatus={filterStatus(task.idStatus)}
-                                    idStatusId = {task.idStatus}
-                                    idPriority={filterPriority(task.idPriority)}
+                                    idStatus={task.idStatus}
+                                    idPriority={task.idPriority}
                                 />
                         )})
                         : null
@@ -176,9 +155,8 @@ function ManageTask(){
                                     nameTask={task.nameTask}
                                     descriptionTask={task.descriptionTask}
                                     dateSuccess={task.dateSuccess}
-                                    idStatus={filterStatus(task.idStatus)}
-                                    idStatusId = {task.idStatus}
-                                    idPriority={filterPriority(task.idPriority)}
+                                    idStatus={task.idStatus}
+                                    idPriority={task.idPriority}
                                 />
                         )})
                         : null
